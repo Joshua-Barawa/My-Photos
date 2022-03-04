@@ -1,0 +1,21 @@
+.nav{
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color:blue;
+text-align:center;
+height:80px;
+position:relative;
+color:#fff;
+}
+
+.nav .logo{
+padding: 0px 5%;
+font-size:25px;
+text-decoration:none;
+color:#fff;
+}
+
+.form-inline{
+margin-right:30px;
+}
