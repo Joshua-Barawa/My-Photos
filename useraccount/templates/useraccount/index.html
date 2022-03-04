@@ -2,11 +2,29 @@
 {% extends 'useraccount/base.html' %}
 {% load static %}
  {% block title %}<title>Home-Now You Know</title>{% endblock %}
-{% block css %}<link rel="stylesheet" href="{% static '' %}">{% endblock  %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock  %}
 
 {% block content %}
+<div class="home">
 
-<h1>This is the home page</h1>
+ <div class="home-left">
+
+  <ul class="leftLinks">
+<li class="link"><i class="material-icons">home</i><a class="link-item" href="/">Home</a> </li>
+   <li class="link"><i class="material-icons">add_circle</i><a class="link-item" href="/">Post</a> </li>
+  <li class="link"><i class="material-icons">account_circle</i><a class="link-item" href="/">Profile</a> </li>
+   <li class="link"><i class="material-icons">logout</i><a class="link-item" href="/">Logout</a></li>
+  </ul>
+
+ </div>
+
+
+
+ <div class="home-center">Center</div>
+ <div class="home-right">Right</div>
+
+
+</div>
 
 </body>
 </html>

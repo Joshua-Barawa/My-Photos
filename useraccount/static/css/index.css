@@ -1,0 +1,56 @@
+
+.home{
+display:flex;
+justify-content: space-between;
+padding:0px 7%;
+margin:10px 0px;
+}
+
+
+////////////////////////START OF HOME LEFT/////////////
+.home-left{
+ flex:1;
+ }
+
+.leftLinks{
+padding:20px 30px;
+text-align:center;
+}
+
+.link{
+list-style:none;
+padding:20px 5px;
+display:flex;
+align-items:center;
+color:gray;
+}
+
+.link-item{
+text-decoration:none;
+font-size:20px;
+color:gray;
+padding:5px 20px;
+border-radius:5px;
+}
+
+
+.link-item:hover{
+background-color:gray;
+color:black;
+font-weight:bold;
+}
+
+
+
+
+
+
+.home-center{
+flex:4;
+background-color:blue;
+}
+
+.home-right{
+flex:1;
+background-color:red;
+}
