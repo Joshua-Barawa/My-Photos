@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("Hello New Project")
+    return render(request, 'useraccount/index.html', {})
