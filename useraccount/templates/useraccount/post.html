@@ -11,14 +11,13 @@
 
   <ul class="leftLinks">
   <li class="link"><a class="link-item" href="/"><i class="material-icons">home</i>Home</a> </li>
-   <li class="link"><a class="link-item" href="/"   data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"  ><i class="material-icons">add_circle</i>Post</a></li>
+   <li class="link"><a class="link-item" href="/add-post/"   data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"  ><i class="material-icons">add_circle</i>Post</a></li>
   <li class="link"><a class="link-item" href="/"><i class="material-icons">account_circle</i>Profile</a> </li>
    <li class="link"><a class="link-item" href="/members/logout-user/"><i class="material-icons">logout</i>Logout</a></li>
 
   </ul>
 
  </div>
-
 
  
  <div class="home-center">
@@ -32,7 +31,7 @@
       <div class="post-actions">
        <div>
        <span><button class="like-btn"><i class="material-icons">thumb_up</i></button>{{image.like}}</span>
-        <span><button class="comments" type="button"><i class="material-icons">comment</i></button>{{image.comments}}</span>
+        <span><button class="comments" type="button"><i class="material-icons">comment</i></button>{{image.comment}}</span>
         </div>
         <span>{{image.posted_on}}</span>
 
@@ -42,16 +41,17 @@
 
 
      <div id="comments">
+         {% if comments %}
 {% for comment in comments %}
 <div class="user-repo">
-        <p>{{comment.name}}</p>
-           <p>{{comment.desc}}</p>
+           <span class="user"><img class="profile" src="{{comment.name.profile_photo.url}}"><p>{{comment.name}}</p></span>
+           <p class="comment">{{comment.desc}}</p>
         </div>`
-{%endfor %}
+{% endfor %}
+         {% else %}
+         <p>No comments</p>
+         {% endif %}
 </div>
-
-
-
 
       <div class="row align-items-center justify-content-center">
                 <h5>Add  Comment</h5>
@@ -60,7 +60,7 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
-                <button type="submit " class=" btn btn-primary " >Submit</button>
+                <button type="submit " class=" btn btn-secondary " >Submit</button>
             </form>
         </div>
 

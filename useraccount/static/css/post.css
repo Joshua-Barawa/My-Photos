@@ -87,3 +87,10 @@ background-color:transparent;
 border:none;
 padding:7px;
 }
+
+.user{
+display:flex;
+}
+.comment{
+margin-left:40px;
+}
