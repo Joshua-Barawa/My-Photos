@@ -1,0 +1,26 @@
+{% extends 'useraccount/base.html' %}
+{% load static %}
+ {% block title %}<title>FakeBook-Login</title>{% endblock %}
+{% block css %}{% endblock  %}
+
+{% block content %}
+
+<p class="message">
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  There was an error with your form
+</div>
+
+{% endif %}
+</p>
+<h3>Register</h3>
+<form method="post">
+  {% csrf_token %}
+   {{form.as_p}}
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+</body>
+</html>
+
+{% endblock %}

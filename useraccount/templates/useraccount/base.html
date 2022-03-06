@@ -24,13 +24,16 @@
 
       </ul>
 
-        <a class="login" href="/members/login-user/">Login</a>
-        <a class="btn btn-primary signup" href="members/sign-up/">Sign up</a>
-
+      {% if user.is_authenticated %}
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+
+      {% else %}
+       <a class="login" href="/members/login-user/">Login</a>
+        <a class="btn btn-primary signup" href="/members/register-user/">Sign up</a>
+      {% endif %}
     </div>
   </div>
 </nav>

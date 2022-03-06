@@ -3,7 +3,7 @@ from django.db import models
 
 class User(models.Model):
     profile = models.ImageField(blank=True, null=True)
-    name = models.CharField(max_length=100)
+    username = models.CharField(max_length=100)
     bio = models.TextField(max_length=200)
 
     def __str__(self):
@@ -17,7 +17,6 @@ class Image(models.Model):
     caption = models.TextField(max_length=200)
     like = models.IntegerField(default=0)
     comments = models.IntegerField(default=0)
-    posted_on = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return self.name
