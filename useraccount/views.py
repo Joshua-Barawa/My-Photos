@@ -14,7 +14,23 @@ def home(request):
 @login_required(login_url='/members/login-user')
 def get_image_by_id(request, id):
     image = Image.objects.get(pk=id)
-    return render(request, "useraccount/post.html", {"image": image})
+
+
+    user = User.objects.get(id=request.user.id)
+    profile = Profile.objects.filter(user=user).get()
+
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save()
+            comment.name = profile
+            comment.post_id = id
+            comment.save()
+        return redirect("get_image")
+    else:
+        form = CommentForm()
+
+    return render(request, "useraccount/post.html", {"image": image, "form":form})
 
 
 @login_required(login_url='/members/login-user')
@@ -32,3 +48,20 @@ def save_image(request):
     else:
         form = ImageForm()
     return render(request, "useraccount/add_post.html", {'form': form})
+
+
+# @login_required(login_url='/members/login-user')
+# def add_comment(request):
+#     user = User.objects.get(id=request.user.id)
+#     profile = Profile.objects.filter(user=user).get()
+#
+#     if request.method == "POST":
+#         form = CommentForm(request.POST)
+#         if form.is_valid():
+#             comment = form.save()
+#             comment.name = profile
+#             comment.save()
+#         return redirect("get_image")
+#     else:
+#         form = CommentForm()
+#     return render(request, "useraccount/post.html", {'form': form})

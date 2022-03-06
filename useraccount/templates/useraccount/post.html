@@ -1,7 +1,7 @@
 {% extends 'useraccount/base.html' %}
 {% load static %}
  {% block title %}<title>FakeBook</title>{% endblock %}
-{% block css %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock  %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/post.css' %}">{% endblock  %}
 
 {% block content %}
 
@@ -29,19 +29,41 @@
      <div>
 
      <p class="caption">{{image.caption}}</p>
-
-
       <div class="post-actions">
        <div>
        <span><button class="like-btn"><i class="material-icons">thumb_up</i></button>{{image.like}}</span>
-
         <span><button class="comments" type="button"><i class="material-icons">comment</i></button>{{image.comments}}</span>
         </div>
-
         <span>{{image.posted_on}}</span>
 
    </div>
    </div>
+
+
+
+     <div id="comments">
+{% for comment in comments %}
+<div class="user-repo">
+        <p>{{comment.name}}</p>
+           <p>{{comment.desc}}</p>
+        </div>`
+{%endfor %}
+</div>
+
+
+
+
+      <div class="row align-items-center justify-content-center">
+                <h5>Add  Comment</h5>
+            </div>
+            <br>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit " class=" btn btn-primary " >Submit</button>
+            </form>
+        </div>
+
 
     </div>
 

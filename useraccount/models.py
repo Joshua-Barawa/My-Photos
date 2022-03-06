@@ -25,7 +25,7 @@ class Image(models.Model):
 
 class Comments(models.Model):
     post_id = models.ForeignKey(Image, on_delete=models.CASCADE, blank=False, null=False)
-    name = models.ForeignKey(User, on_delete=models.CASCADE,)
+    name = models.ForeignKey(Profile, on_delete=models.CASCADE,)
     desc = models.TextField(max_length=200)
 
     def __str__(self):
