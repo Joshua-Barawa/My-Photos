@@ -27,11 +27,19 @@
      <p class="user-post"><img class="profile" src="{{post.user.profile.url}}" alt="user-image">{{post.user.name}}</p>
      <img class="image" src="{{ post.image.url}}" alt="post-image" >
      <div>
+
      <p class="caption">{{post.caption}}</p>
+
+
       <div class="post-actions">
+       <div>
        <span><button class="like-btn"><i class="material-icons">thumb_up</i></button>{{post.like}}</span>
-       <span><button class="unlike-btn"><i class="material-icons">thumb_up</i></button>{{post.dislike}}</span>
+       <span><button class="unlike-btn"><i class="material-icons">thumb_down</i></button>{{post.dislike}}</span>
         <span><button class="comments" type="button"><i class="material-icons">comment</i></button>{{post.comments}}</span>
+        </div>
+
+        <span>{{post.posted_on}}</span>
+
    </div>
    </div>
 

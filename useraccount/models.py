@@ -1,6 +1,5 @@
-
 from django.db import models
-import datetime
+
 
 class User(models.Model):
     profile = models.ImageField(blank=True, null=True)
@@ -17,9 +16,8 @@ class Image(models.Model):
     name = models.CharField(max_length=60)
     caption = models.TextField(max_length=200)
     like = models.IntegerField(default=0)
-    dislike = models.IntegerField(default=0)
     comments = models.IntegerField(default=0)
-    posted_on = models.DateField(blank=True, null=True)
+    posted_on = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return self.name
