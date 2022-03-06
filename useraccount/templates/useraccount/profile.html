@@ -1,10 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'useraccount/base.html' %}
+{% load static %}
+ {% block title %}<title>FakeBook</title>{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/profile.css' %}">{% endblock  %}
 
+{% block content %}
+
+<div class="main">
+
+<div class="my-posts">
+    <h3>My Posts</h3>
+   {% for post in posts %}
+    <div class="post">
+     <a href="/get-image/{{post.id}}">
+     <img class="image" src="{{ post.image.url}}" alt="post-image" >
+     </a>
+     <div>
+     <p class="caption">{{post.caption}}</p>
+      <div class="post-actions">
+       <div>
+       <span><a href="/" class="like-btn"><i class="material-icons">thumb_up</i></a>{{post.like}}</span>
+        <span><a href="/" class="comments" type="button"><i class="material-icons">comment</i></a>{{post.comment}}</span>
+        </div>
+
+          <div>
+       <span><button class="btn btn-primary">Update</button></span>
+        <span><button class="btn btn-danger" type="button">Delete</button></span>
+        </div>
+   </div>
+   </div>
+
+
+
+    </div>
+   {% endfor %}
+
+</div>
+
+<div class="profile-side">
+
+<div class="my-profile">
+ <img class="profile" src="{{user.profile.profile_photo.url}}" >
+<p class="username">@{{user.username}}</p>
+<p class="bio">{{user.profile.bio}}</p>
+</div>
+
+<div class="form" >
+    <h4>Update Profile</h4>
+<form  method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit " class="btn btn-primary ">Update</button>
+</form>
+</div>
+
+</div>
+
+
+
+</div>
 </body>
 </html>
+
+{% endblock %}

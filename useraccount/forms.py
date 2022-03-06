@@ -1,5 +1,6 @@
 from django import forms
-from .models import Image, Comments
+from .models import Image, Comments, Profile
+from django.contrib.auth.models import User
 
 
 class ImageForm(forms.ModelForm):
@@ -23,3 +24,13 @@ class CommentForm(forms.ModelForm):
         super(CommentForm, self).__init__(*args, **kwargs)
         self.fields['desc'].widget.attrs['class'] = 'form-control'
 
+
+class UpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = form = ('profile_photo', 'bio')
+
+    def __init__(self, *args, **kwargs):
+        super(UpdateForm, self).__init__(*args, **kwargs)
+        self.fields['profile_photo'].widget.attrs['class'] = 'form-control'
+        self.fields['bio'].widget.attrs['class'] = 'form-control'

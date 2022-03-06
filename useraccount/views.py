@@ -59,10 +59,21 @@ def save_image(request):
 @login_required(login_url='/members/login-user')
 def user_profile(request):
     user = User.objects.get(id=request.user.id)
+    form = UpdateForm(request.POST or None, instance=user.profile)
     try:
-        posts = Image.objects.filter(user=user)
+        posts = Image.objects.filter(user=user.profile)
     except Image.DoesNotExist:
         posts = None
 
-    print(user.username)
-    return render(request, "useraccount/profile.html", {})
+    if form.is_valid():
+        form.save()
+        return redirect("user_profile")
+    return render(request, "useraccount/profile.html", {"user":user, "posts":posts, "form":form})
+
+
+def update_profile(request, id):
+    image = Profile.objects.get(pk=id)
+    form = ImageForm(request.POST or None, instance=image)
+    if form.is_valid():
+        form.save()
+    return render(request, "album/photo_update.html", {"image": image, "form": form})
