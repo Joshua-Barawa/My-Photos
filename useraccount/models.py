@@ -31,3 +31,7 @@ class Comments(models.Model):
     def __str__(self):
         return self.name
 
+
+class Followers(models.Model):
+    user = models.ManyToManyField(Profile)
+    following = models.ManyToManyField(User)

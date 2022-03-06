@@ -36,7 +36,6 @@ def register_user(request):
             user = form.save()
             profile = profile_form.save(commit=False)
             profile.user = user
-
             profile.save()
             login(request, user)
             messages.success(request, "Registration successful")

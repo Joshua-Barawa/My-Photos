@@ -12,7 +12,7 @@
 
   <ul class="leftLinks">
   <li class="link"><a class="link-item" href="/"><i class="material-icons">home</i>Home</a> </li>
-   <li class="link"><a class="link-item" href="/"   data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"  ><i class="material-icons">add_circle</i>Post</a></li>
+   <li class="link"><a class="link-item" href="/add-post/"   data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"  ><i class="material-icons">add_circle</i>Post</a></li>
   <li class="link"><a class="link-item" href="/"><i class="material-icons">account_circle</i>Profile</a> </li>
    <li class="link"><a class="link-item" href="/members/logout-user/"><i class="material-icons">logout</i>Logout</a></li>
 
@@ -56,7 +56,16 @@
 
 
 
- <div class="home-right">Right</div>
+ <div class="home-right">
+  <p>Follow Suggestions</p>
+  {% for follow in follows %}
+    <div class="suggestion">
+     <p class="following"><img class="profile" src="{{follow.profile_photo.url}}" alt="user-image">{{follow.user}}</p>
+       <a class="btn btn-primary follow-btn">Follow</a>
+    </div>
+   {% endfor %}
+
+ </div>
 
 
 </div>

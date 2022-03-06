@@ -5,16 +5,10 @@ from .models import Image
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ('username', 'email', 'password1', 'password2')
-        labels = {
-            'name': '',
-            'description': "",
-            'location': "",
-            'category': "",
-        }
-        widgets = {
-            'name': forms.TextInput(attrs={'class': "form-control", "placeholder":"Image Name"}),
-            'description': forms.TextInput(attrs={'class': "form-control", "placeholder": "Describe Image"}),
-            'location': forms.Select(attrs={'class': "form-control", "placeholder": "Describe Image"}),
-            'category': forms.Select(attrs={'class': "form-control"}),
-        }
+        fields = ('image', 'name', 'caption')
+
+    def __init__(self, *args, **kwargs):
+        super(ImageForm, self).__init__(*args, **kwargs)
+        self.fields['image'].widget.attrs['class'] = 'form-control'
+        self.fields['name'].widget.attrs['class'] = 'form-control'
+        self.fields['caption'].widget.attrs['class'] = 'form-control'

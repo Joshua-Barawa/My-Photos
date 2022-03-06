@@ -95,10 +95,23 @@ padding:7px;
 
 
 
-
-
 .home-right{
-flex:1;
-background-color:red;
+flex:2;
 height:300px;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+padding:0px 10px;
+text-align:center;
+}
+
+.suggestion{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+
+.following{
+display:flex;
+justify-content:center;
+align-items:center;
 }
