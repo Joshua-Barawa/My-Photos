@@ -1,7 +1,19 @@
 .navbar{
 padding:15px 9%;
+display:flex;
+justify-content:space-between;
 }
 
 .navbar-brand{
 font-size:25px;
+}
+
+.login{
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+color:#fff;
+}
+.login, .signup{
+margin:0px 15px;
 }

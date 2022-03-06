@@ -51,17 +51,17 @@ padding:20px 10%;
 }
 
 .post{
-max-width:500px;
-height:600px;
-padding:5px;
+max-width:600px;
+height:700px;
 border-radius: 5px;
-border:1px solid #C0C0C0;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 margin-bottom:10px;
 }
 
 .user-post{
 display:flex;
 align-items:center;
+padding:7px;
 }
 
 .profile{
@@ -78,6 +78,7 @@ height:80%;
 .like-btn , .unlike-btn, .comments{
 background-color:transparent;
 border:none;
+padding:7px;
 }
 
 
