@@ -1,4 +1,3 @@
-
 {% extends 'useraccount/base.html' %}
 {% load static %}
  {% block title %}<title>FakeBook</title>{% endblock %}
@@ -21,41 +20,32 @@
  </div>
 
 
-
+ 
  <div class="home-center">
 
-   {% for post in posts %}
     <div class="post">
-     <a href="/get-image/{{post.id}}">
-     <p class="user-post"><img class="profile" src="{{post.user.profile_photo.url}}" alt="user-image">{{post.user}}</p>
-     <img class="image" src="{{ post.image.url}}" alt="post-image" >
+     <p class="user-post"><img class="profile" src="{{image.user.profile_photo.url}}" alt="user-image">{{image.user}}</p>
+     <img class="image" src="{{ image.image.url}}" alt="post-image" >
      <div>
 
-     <p class="caption">{{post.caption}}</p>
+     <p class="caption">{{image.caption}}</p>
 
 
       <div class="post-actions">
        <div>
-       <span><button class="like-btn"><i class="material-icons">thumb_up</i></button>{{post.like}}</span>
-        <span><button class="comments" type="button"><i class="material-icons">comment</i></button>{{post.comments}}</span>
+       <span><button class="like-btn"><i class="material-icons">thumb_up</i></button>{{image.like}}</span>
+
+        <span><button class="comments" type="button"><i class="material-icons">comment</i></button>{{image.comments}}</span>
         </div>
 
-        <span>{{post.posted_on}}</span>
+        <span>{{image.posted_on}}</span>
 
    </div>
    </div>
-
-      </a>
 
     </div>
-   {% endfor %}
 
  </div>
-
-
-
- <div class="home-right">Right</div>
-
 
 </div>
 
