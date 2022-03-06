@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,  login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from .forms import RegistrationForm
+from .forms import RegistrationForm, UserProfileForm
 
 
 def login_user(request):
@@ -31,12 +31,18 @@ def logout_user(request):
 def register_user(request):
     if request.method == "POST":
         form = RegistrationForm(request.POST)
-        if form.is_valid():
+        profile_form = UserProfileForm(request.POST)
+        if form.is_valid() and profile_form.is_valid():
             user = form.save()
-            login(request. user)
+            profile = profile_form.save(commit=False)
+            profile.user = user
+
+            profile.save()
+            login(request, user)
             messages.success(request, "Registration successful")
             return redirect('home-page')
     else:
         form = RegistrationForm()
+        profile_form = UserProfileForm(request.POST)
 
-    return render(request, 'members/register.html', {'form': form})
+    return render(request, 'members/register.html', {'form': form, 'profile_form':profile_form})
