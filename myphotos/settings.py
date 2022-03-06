@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'myphotos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fakebook',
+        'NAME': 'fakebookdb',
         'USER': 'fakebook',
         'PASSWORD': 'letmein',
         'HOST': 'localhost',

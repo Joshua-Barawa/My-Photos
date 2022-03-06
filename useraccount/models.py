@@ -1,23 +1,23 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
-class User(models.Model):
-    profile = models.ImageField(blank=True, null=True)
-    email = models.EmailField(max_length=200)
-    bio = models.TextField(max_length=200)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    profile_photo = models.ImageField(blank=True, null=True)
+    bio = models.TextField(max_length=200, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.user.username
 
 
 class Image(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField()
     name = models.CharField(max_length=60)
     caption = models.TextField(max_length=200)
     like = models.IntegerField(default=0)
     comments = models.IntegerField(default=0)
-    posted_on = models.DateField(models.DateField(null=True, blank=True))
 
     def __str__(self):
         return self.name
