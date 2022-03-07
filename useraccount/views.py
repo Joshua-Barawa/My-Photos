@@ -58,6 +58,16 @@ def save_image(request):
 
 
 @login_required(login_url='/members/login-user')
+def update_post(request, id):
+    image = Image.objects.get(id=id)
+    form = ImageForm(request.POST or None, instance=image)
+    if form.is_valid():
+        form.save()
+        return redirect("user_profile")
+    return render(request, "useraccount/add_post.html", {"form": form})
+
+
+@login_required(login_url='/members/login-user')
 def user_profile(request):
     user = User.objects.get(id=request.user.id)
     form = UpdateForm(request.POST or None, instance=user.profile)
