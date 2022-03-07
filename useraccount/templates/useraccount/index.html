@@ -20,8 +20,6 @@
 
  </div>
 
-
-
  <div class="home-center">
 
    {% for post in posts %}
@@ -41,13 +39,8 @@
        <span><a href="/like-post/{{post.id}}" class="like-btn"><i class="material-icons">thumb_up</i></a>{{post.like}}</span>
         <span><button class="comments" type="button"><i class="material-icons">comment</i></button>{{post.comment}}</span>
         </div>
-
-        <span>{{post.posted_on}}</span>
-
    </div>
    </div>
-
-
 
     </div>
    {% endfor %}

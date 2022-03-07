@@ -95,5 +95,10 @@ def like_post(request, id):
     return home(request)
 
 
-def follow(request):
-    return "HELLO"
+@login_required(login_url='/members/login-user')
+def search_user(request):
+    if request.method == "POST":
+        search = request.POST["search"]
+        users = Image.objects.filter(category=search)
+        return render(request, "useraccount/index.html", {"search": search, "users": users})
+    return render(request, "useraccount/index.html", {})

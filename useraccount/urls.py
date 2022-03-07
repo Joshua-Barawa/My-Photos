@@ -10,4 +10,5 @@ urlpatterns = [
     path('delete-profile/', delete_profile, name="delete_profile"),
     path('like-post/<int:id>', like_post, name="like_post"),
     path('update-post/<int:id>', update_post, name="update_post"),
+    path('search-user/', search_user, name="search_user"),
 ]
