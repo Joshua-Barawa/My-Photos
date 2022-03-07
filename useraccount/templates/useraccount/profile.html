@@ -18,8 +18,8 @@
      <p class="caption">{{post.caption}}</p>
       <div class="post-actions">
        <div>
-       <span><a href="/" class="like-btn"><i class="material-icons">thumb_up</i></a>{{post.like}}</span>
-        <span><a href="/" class="comments" type="button"><i class="material-icons">comment</i></a>{{post.comment}}</span>
+           <span><button class="like-btn"><i class="material-icons">thumb_up</i></button>{{post.like}}</span>
+        <span><a class="comments" type="button"><i class="material-icons">comment</i></a>{{post.comment}}</span>
         </div>
 
           <div>
@@ -42,6 +42,7 @@
  <img class="profile" src="{{user.profile.profile_photo.url}}" >
 <p class="username">@{{user.username}}</p>
 <p class="bio">{{user.profile.bio}}</p>
+    <a class="btn btn-danger dlt-btn" href="/delete-profile/">Delete Account</a>
 </div>
 
 <div class="form" >

@@ -1,6 +1,5 @@
 from django import forms
 from .models import Image, Comments, Profile
-from django.contrib.auth.models import User
 
 
 class ImageForm(forms.ModelForm):

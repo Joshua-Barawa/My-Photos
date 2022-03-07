@@ -71,7 +71,15 @@ def user_profile(request):
     return render(request, "useraccount/profile.html", {"user": user, "posts": posts, "form": form})
 
 
+@login_required(login_url='/members/login-user')
 def delete_profile(request):
     User.objects.filter(id=request.user.id).delete()
     return logout_user(request)
 
+
+@login_required(login_url='/members/login-user')
+def like_post(request, id):
+    image = Image.objects.get(id=id)
+    image.like = image.like + 1
+    Image.objects.filter(id=id).update(like=image.like)
+    return home(request)
