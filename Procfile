@@ -1,1 +1,1 @@
-web: gunicorn myphotos.wsgi --log-file -
+web: gunicorn --preload myphotos.wsgi --log-file -
