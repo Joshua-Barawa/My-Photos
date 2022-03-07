@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
 from django.contrib.auth.decorators import login_required
+from members.views import logout_user
 
 
 @login_required(login_url='/members/login-user')
@@ -64,16 +65,13 @@ def user_profile(request):
         posts = Image.objects.filter(user=user.profile)
     except Image.DoesNotExist:
         posts = None
-
     if form.is_valid():
         form.save()
         return redirect("user_profile")
-    return render(request, "useraccount/profile.html", {"user":user, "posts":posts, "form":form})
+    return render(request, "useraccount/profile.html", {"user": user, "posts": posts, "form": form})
 
 
-def update_profile(request, id):
-    image = Profile.objects.get(pk=id)
-    form = ImageForm(request.POST or None, instance=image)
-    if form.is_valid():
-        form.save()
-    return render(request, "album/photo_update.html", {"image": image, "form": form})
+def delete_profile(request):
+    User.objects.filter(id=request.user.id).delete()
+    return logout_user(request)
+
