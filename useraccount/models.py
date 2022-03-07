@@ -31,7 +31,3 @@ class Comments(models.Model):
     def __str__(self):
         return self.post_id.name
 
-
-class Followers(models.Model):
-    user_id= models.ManyToManyField(User)
-    following = models.ManyToManyField(Profile)

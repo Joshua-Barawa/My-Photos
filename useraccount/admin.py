@@ -4,4 +4,3 @@ from .models import *
 admin.site.register(Image)
 admin.site.register(Profile)
 admin.site.register(Comments)
-admin.site.register(Followers)
