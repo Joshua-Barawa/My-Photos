@@ -93,3 +93,7 @@ def like_post(request, id):
     image.like = image.like + 1
     Image.objects.filter(id=id).update(like=image.like)
     return home(request)
+
+
+def follow(request):
+    return "HELLO"

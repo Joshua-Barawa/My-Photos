@@ -33,5 +33,5 @@ class Comments(models.Model):
 
 
 class Followers(models.Model):
-    user = models.ManyToManyField(Profile)
-    following = models.ManyToManyField(User)
+    user_id= models.ManyToManyField(User)
+    following = models.ManyToManyField(Profile)
