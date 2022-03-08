@@ -7,9 +7,6 @@ class Profile(models.Model):
     profile_photo = models.ImageField(blank=True, null=True)
     bio = models.TextField(max_length=200, blank=True, null=True)
 
-    def __str__(self):
-        return self.user.username
-
 
 class Image(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True)
