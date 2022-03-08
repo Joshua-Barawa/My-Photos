@@ -16,7 +16,7 @@ from pathlib import Path
 from decouple import config,Csv
 import django_on_heroku
 
-
+import cloudinary
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -161,3 +161,11 @@ django_on_heroku.settings(locals())
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+cloudinary.config(
+  cloud_name = "deu5xlfnt",
+  api_key = "184371617574783",
+  api_secret = "gC6SDSTlwumaGAJiKg-ZBiBXIA8",
+  secure = True
+)
