@@ -133,7 +133,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, "successfully logged out")
-    return render(request, 'useraccount/login.html')
+    return redirect('login-user')
 
 
 def register_user(request):
@@ -147,7 +147,7 @@ def register_user(request):
             profile.save()
             login(request, user)
             messages.success(request, "Registration successful")
-            return render('home-page')
+            return redirect('home-page')
     else:
         form = RegistrationForm()
         profile_form = UserProfileForm()
