@@ -127,7 +127,7 @@ def login_user(request):
     else:
         return render(request, 'useraccount/login.html', {})
 
-    return render(request, '/login.html', {})
+    return render(request, 'useraccount/login.html', {})
 
 
 def logout_user(request):
