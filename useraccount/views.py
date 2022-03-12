@@ -123,7 +123,7 @@ def login_user(request):
             return redirect('home-page')
         else:
             messages.success(request, "Invalid username or password")
-            return render(request, '/login.html', {})
+            return render(request, 'useraccount/login.html', {})
     else:
         return render(request, 'useraccount/login.html', {})
 
@@ -133,7 +133,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, "successfully logged out")
-    return redirect('login-user')
+    return render(request, 'useraccount/login.html')
 
 
 def register_user(request):
