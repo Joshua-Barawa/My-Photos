@@ -146,7 +146,7 @@ def register_user(request):
             profile.user = user
             profile.save()
             messages.success(request, "Registration successful")
-            return render(request, 'useraccount/register.html')
+            return render(request, 'useraccount/login.html')
     else:
         form = RegistrationForm()
         profile_form = UserProfileForm()
