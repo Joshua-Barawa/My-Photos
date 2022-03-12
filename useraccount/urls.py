@@ -10,5 +10,9 @@ urlpatterns = [
     path('delete-profile/', delete_profile, name="delete_profile"),
     path('like-post/<int:id>', like_post, name="like_post"),
     path('update-post/<int:id>', update_post, name="update_post"),
+    path('delete-post/<int:id>', delete_post, name="delete_post"),
     path('search-user/', search_user, name="search_user"),
+    path('login-user/', login_user, name='login-user'),
+    path('logout-user/', logout_user, name='logout-user'),
+    path('register-user/', register_user, name='register-user'),
 ]

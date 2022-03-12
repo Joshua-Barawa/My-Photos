@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'useraccount.apps.UseraccountConfig',
-    'members',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +75,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'myphotos.wsgi.application'
+
+
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': 'fakebookdb',
+#             'USER': 'fakebook',
+#             'PASSWORD': 'letmein',
+#             'HOST': 'localhost',
+#             'PORT': '',
+#         }
+#
+#     }
 
 
 # Database
@@ -156,7 +168,7 @@ STATICFILES_DIRS = (
 )
 
 
-django_on_heroku.settings(locals())
+# django_on_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
